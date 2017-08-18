@@ -1,23 +1,25 @@
 # coding = utf-8
-__author__ = 'zhaoshuai3'
 
 
 import urllib
-import urllib2,sys
-type = sys.getfilesystemencoding()
-print type
+import urllib2
+import sys
+TYPE = sys.getfilesystemencoding()
+print TYPE
 
-def urlGet(url,headers={}):
+
+def url_get(url, headers={}):
     req = urllib2.Request(url)
-    res = urllib2.urlopen(req,headers=headers)
-    print res.read().decode('utf-8').encode(type)
+    res = urllib2.urlopen(req, headers=headers)
+    print res.read().decode('utf-8').encode(TYPE)
 
-def urlPost(url,headers={},body={}):
+
+def url_post(url, headers={}, body={}):
     data = urllib.urlencode(body)
-    req = urllib2.Request(url = url ,headers=headers,data=data)
+    req = urllib2.Request(url=url, headers=headers, data=data)
     res = urllib2.urlopen(req)
-    print res.read().decode('utf-8').encode(type)
+    print res.read().decode('utf-8').encode(TYPE)
 
 if __name__ == "__main__":
     # urlGet("http://www.baidu.com")
-    urlPost("http://www.baidu.com")
+    url_post("http://www.baidu.com")
